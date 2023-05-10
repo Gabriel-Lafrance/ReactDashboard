@@ -8,7 +8,6 @@ type Props = {
   }
 
 export const Layout = ({children} : Props) => {
-{}
     const [showNav,setShowNav] = React.useState<boolean>(true);
     const [isMobile,setIsMobile] = React.useState<boolean>(false);
 
@@ -35,16 +34,9 @@ export const Layout = ({children} : Props) => {
     return (
         <>
             <TopBar showNav={showNav} setShowNav={setShowNav}/>
-            <Transition
-             as={Fragment}
-             show={showNav}
-             enter="transform transition duration-300"
-             enterFrom="-translate-x-full"
-             enterTo="translate-x-0"
-             leave="transform transition duration-300 ease-in-out"
-             leaveFrom="translate-x-0"
-             leaveTo="-translate-x-full"
-            >
+            <Transition as={Fragment} show={showNav}
+             enter="transform transition duration-300" enterFrom="-translate-x-full" enterTo="translate-x-0" 
+             leave="transform transition duration-300 ease-in-out" leaveFrom="translate-x-0" leaveTo="-translate-x-full">
             <SideBar props={setShowNav} />
             </Transition>
             <main className={`pt-16 transition-all duration-300 ${showNav && !isMobile ? "pl-48 md:56" : ""}`}>
